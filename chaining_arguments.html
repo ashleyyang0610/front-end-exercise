@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title></title>
+    <script type='text/javascript'>
+        window.onload=function(){
+            const add = (...arg) => {
+                let sum = 0;
+                let addFunction = (args) => {
+                    for( var i in args ) {
+                        if(Number.isInteger(args[i]) === true){
+                            sum += args[i];
+                        }
+                    }
+                    return sum;
+                }
+                let ret = (...arg) => {
+                    addFunction(arg);
+                    return ret;
+                }
+                addFunction(arg);
+                ret.toString = function(){return sum;};
+                return ret;
+            }
+            document.querySelector('.outout-text').innerHTML = add(1,3,4,5,10,14)(9,7,3)(2,10,5)(5);
+        }
+
+    </script>
+    </head>
+    <body>
+        <p class="outout-text"></p>
+    </body>
+</html>
